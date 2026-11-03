@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>RK Productions | Visual Stories</title>
+<meta name="description" content="RK Productions — Cinematic films, photography and creative visual storytelling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#101010;
+  --panel:#191919;
+  --text:#f5f3ef;
+  --muted:#a09c96;
+  --accent:#c9a879;
+  --line:#303030;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.6;
+}
+a {color:inherit;text-decoration:none}
+img {display:block;width:100%;object-fit:cover}
+button {font:inherit}
+.container {width:min(1160px,90%);margin:auto}
+header {
+  position:sticky;top:0;z-index:50;
+  background:rgba(16,16,16,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+.nav {
+  min-height:72px;display:flex;
+  justify-content:space-between;align-items:center;
+  gap:15px;
+}
+.logo {font-size:20px;font-weight:700;letter-spacing:2px}
+.logo span {color:var(--accent)}
+.nav-links {display:flex;gap:22px;align-items:center}
+.nav-links a {font-size:13px;color:var(--muted)}
+.nav-links a:hover {color:var(--accent)}
+.menu {display:none;background:none;color:white;border:0;font-size:25px}
+.hero {
+  min-height:650px;height:85vh;max-height:850px;
+  display:flex;align-items:center;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.24)),
+  linear-gradient(0deg,#101010 0%,transparent 35%),
+  url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1800') center/cover;
+}
+.hero-content {max-width:720px;padding:65px 0}
+.eyebrow {
+  color:var(--accent);letter-spacing:4px;
+  font-size:11px;font-weight:700;text-transform:uppercase;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,8vw,90px);
+  line-height:1.08;margin:20px 0;
+}
+.hero h1 span {color:var(--accent)}
+.hero p {color:#d0ccc5;max-width:520px;font-size:16px}
+.actions {display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn {
+  display:inline-block;padding:13px 23px;
+  border:1px solid var(--accent);
+  background:var(--accent);color:#17130e;
+  font-weight:700;font-size:12px;
+  letter-spacing:1px;text-transform:uppercase;
+  cursor:pointer;
+}
+.btn.outline {background:transparent;color:white}
+section {padding:95px 0}
+.section-head {margin-bottom:35px}
+.section-head h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,5vw,50px);
+  margin:10px 0;
+}
+.section-head p {color:var(--muted);font-size:14px}
+.about-grid {
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:55px;align-items:center;
+}
+.about-image {height:420px;object-fit:cover}
+.about-copy p {color:var(--muted);margin:15px 0}
+.small-title {color:var(--accent);font-size:11px;letter-spacing:3px}
+.filters {
+  display:flex;gap:10px;flex-wrap:wrap;margin:25px 0 30px;
+}
+.filter {
+  padding:9px 15px;background:transparent;
+  color:var(--muted);border:1px solid var(--line);
+  border-radius:30px;font-size:12px;cursor:pointer;
+}
+.filter.active,.filter:hover {
+  color:#17130e;background:var(--accent);border-color:var(--accent);
+}
+.grid {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.project {background:var(--panel);overflow:hidden}
+.project[hidden] {display:none}
+.project img {height:220px;transition:transform .5s}
+.project:hover img {transform:scale(1.04)}
+.project-image {overflow:hidden;position:relative}
+.project-info {padding:17px}
+.project-info small {color:var(--accent);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.project-info h3 {font-size:17px;margin-top:5px}
+.project-info p {color:var(--muted);font-size:12px;margin-top:5px}
+.project-link {
+  display:inline-block;margin-top:12px;
+  color:var(--accent);font-size:12px;font-weight:700;
+}
+.empty-note {color:var(--muted);font-size:13px;margin-top:15px}
+.photo-grid {
+  columns:3;column-gap:15px;
+}
+.photo-item {
+  display:block;break-inside:avoid;
+  margin-bottom:15px;overflow:hidden;cursor:pointer;
+  background:var(--panel);
+}
+.photo-item img {transition:transform .5s}
+.photo-item:hover img {transform:scale(1.04)}
+.photo-item[hidden] {display:none}
+.lightbox {
+  display:none;position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.95);
+  align-items:center;justify-content:center;padding:20px;
+}
+.lightbox.open {display:flex}
+.lightbox img {max-width:95%;max-height:85vh;width:auto}
+.lightbox button {
+  position:absolute;top:20px;right:25px;
+  background:none;border:0;color:white;font-size:35px;
+}
+.contact-box {
+  background:var(--panel);border:1px solid var(--line);
+  padding:45px;text-align:center;
+}
+.contact-box h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,6vw,52px);
+  margin:12px 0;
+}
+.contact-box p {color:var(--muted);margin-bottom:25px}
+.contact-links {display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-links a {
+  padding:12px 18px;border:1px solid var(--line);
+  font-size:13px;
+}
+.contact-links a:hover {border-color:var(--accent);color:var(--accent)}
+footer {
+  border-top:1px solid var(--line);
+  padding:25px 0;color:var(--muted);font-size:12px;
+  text-align:center;
+}
+@media(max-width:760px) {
+  .nav-links {
+    display:none;position:absolute;top:72px;left:0;
+    width:100%;padding:20px 5%;
+    background:#171717;flex-direction:column;align-items:flex-start;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.show {display:flex}
+  .menu {display:block}
+  .hero {min-height:600px;height:78vh}
+  section {padding:70px 0}
+  .about-grid {grid-template-columns:1fr;gap:25px}
+  .about-image {height:300px}
+  .grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .project img {height:145px}
+  .project-info {padding:12px}
+  .project-info h3 {font-size:14px}
+  .photo-grid {columns:2;column-gap:10px}
+  .photo-item {margin-bottom:10px}
+  .contact-box {padding:30px 15px}
+}
+@media(max-width:380px) {
+  .grid {grid-template-columns:1fr}
+  .project img {height:210px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">RK <span>PRODUCTIONS</span></a>
+    <button class="menu" id="menuBtn" aria-label="Open navigation">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#videos">VIDEOS</a>
+      <a href="#photography">PHOTOGRAPHY</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow">CREATIVE FILMS · PHOTOGRAPHY</div>
+    <h1>Every Frame.<br><span>A Story.</span></h1>
+    <p>Capturing emotions, creating experiences and turning ordinary moments into extraordinary visual stories.</p>
+    <div class="actions">
+      <a class="btn" href="#videos">Explore My Work</a>
+      <a class="btn outline" href="#contact">Let's Connect</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <img class="about-image"
+      src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1000"
+      alt="Creative visual storytelling">
+    <div class="about-copy">
+      <div class="small-title">BEHIND THE LENS</div>
+      <div class="section-head">
+        <h2>About RK Productions</h2>
+      </div>
+      <p>Welcome to RK Productions — a creative space dedicated to visual storytelling through filmmaking, video editing and photography.</p>
+      <p>From cinematic wedding films and commercial shoots to sports, travel and portraits, every project is an opportunity to create something memorable.</p>
+      <p>My goal is simple: tell stories that people feel, remember and connect with.</p>
+      <a class="btn" href="#contact">Work With Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="container">
+    <div class="section-head">
+      <div class="small-title">THE SHOWREEL COLLECTION</div>
+      <h2>Video Portfolio</h2>
+      <p>A collection of films, campaigns and creative projects.</p>
+    </div>
+
+    <div class="filters" id="videoFilters">
+      <button class="filter active" data-filter="all">All Videos</button>
+      <button class="filter" data-filter="baby">Baby Shoot</button>
+      <button class="filter" data-filter="sports">Sports Shoot</button>
+      <button class="filter" data-filter="traditional">Traditional</button>
+      <button class="filter" data-filter="wedding">Wedding</button>
+      <button class="filter" data-filter="advertisement">Advertisement</button>
+      <button class="filter" data-filter="commercial">Commercial</button>
+    </div>
+
+    <div class="grid" id="videoGrid">
+
+      <!-- Replace the # in each video link with your YouTube video URL -->
+
+      <article class="project" data-category="baby">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800" alt="Baby shoot">
+        </div>
+        <div class="project-info">
+          <small>Baby Shoot</small>
+          <h3>Little Moments</h3>
+          <p>A beautiful story of childhood.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+
+      <article class="project" data-category="sports">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800" alt="Sports shoot">
+        </div>
+        <div class="project-info">
+          <small>Sports Shoot</small>
+          <h3>Beyond The Game</h3>
+          <p>Energy, action and passion.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+
+      <article class="project" data-category="traditional">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800" alt="Traditional shoot">
+        </div>
+        <div class="project-info">
+          <small>Traditional Shoot</small>
+          <h3>Timeless Traditions</h3>
+          <p>Culture captured beautifully.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+
+      <article class="project" data-category="wedding">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Wedding film">
+        </div>
+        <div class="project-info">
+          <small>Wedding Shoot</small>
+          <h3>Forever Begins</h3>
+          <p>Stories of love and togetherness.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+
+      <article class="project" data-category="advertisement">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800" alt="Advertisement shoot">
+        </div>
+        <div class="project-info">
+          <small>Advertisement</small>
+          <h3>Brand In Motion</h3>
+          <p>Creative brand storytelling.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+
+      <article class="project" data-category="commercial">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800" alt="Commercial project">
+        </div>
+        <div class="project-info">
+          <small>Commercial Projects</small>
+          <h3>Visual Impact</h3>
+          <p>Professional creative productions.</p>
+          <a class="project-link" href="#" target="_blank">WATCH FILM ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="empty-note">Sample project cards are provided. Replace them with your actual work before sharing your portfolio.</p>
+  </div>
+</section>
+
+<section id="photography">
+  <div class="container">
+    <div class="section-head">
+      <div class="small-title">STORIES IN STILLNESS</div>
+      <h2>Photography</h2>
+      <p>Moments frozen in time, emotions preserved forever.</p>
+    </div>
+
+    <div class="filters" id="photoFilters">
+      <button class="filter active" data-filter="all">All Photos</button>
+      <button class="filter" data-filter="portrait">Portraits</button>
+      <button class="filter" data-filter="travel">Travel & Landscape</button>
+      <button class="filter" data-filter="street">Street</button>
+      <button class="filter" data-filter="traditional">Traditional</button>
+      <button class="filter" data-filter="wedding">Wedding</button>
+    </div>
+
+    <div class="photo-grid" id="photoGrid">
+      <a class="photo-item" data-category="portrait" href="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700" alt="Portrait photography">
+      </a>
+      <a class="photo-item" data-category="travel" href="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1200">
+        <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=700" alt="Travel photography">
+      </a>
+      <a class="photo-item" data-category="street" href="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200">
+        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700" alt="Street photography">
+      </a>
+      <a class="photo-item" data-category="traditional" href="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1200">
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=700" alt="Traditional photography">
+      </a>
+      <a class="photo-item" data-category="wedding" href="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700" alt="Wedding photography">
+      </a>
+      <a class="photo-item" data-category="travel" href="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=700" alt="Mountain landscape">
+      </a>
+    </div>
+    <p class="empty-note">These are sample images. Replace them with your own photographs.</p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button id="closeLightbox" aria-label="Close image">×</button>
+  <img id="lightboxImage" src="" alt="Photography preview">
+</div>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="small-title">LET'S CREATE SOMETHING</div>
+      <h2>Have a Project in Mind?</h2>
+      <p>Let's turn your ideas into something unforgettable. Get in touch for your next project.</p>
+      <div class="contact-links">
+        <!-- REPLACE THESE CONTACT DETAILS -->
+        <a href="https://wa.me/91YOURNUMBER" target="_blank">WHATSAPP ↗</a>
+        <a href="https://instagram.com/YOURUSERNAME" target="_blank">INSTAGRAM ↗</a>
+        <a href="mailto:YOUREMAIL@example.com">EMAIL ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> RK Productions. All Rights Reserved.
+    <br>Creating stories, one frame at a time.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mobile navigation
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('show');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('show');
+  });
+});
+
+// Video category filters
+function setupFilters(filterBox, gridBox) {
+  const buttons = document.querySelectorAll('#' + filterBox + ' .filter');
+  const cards = document.querySelectorAll('#' + gridBox + ' [data-category]');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      const filter = button.dataset.filter;
+
+      cards.forEach(card => {
+        card.hidden = filter !== 'all' && card.dataset.category !== filter;
+      });
+    });
+  });
+}
+
+setupFilters('videoFilters', 'videoGrid');
+setupFilters('photoFilters', 'photoGrid');
+
+// Photography lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+
+document.querySelectorAll('.photo-item').forEach(photo => {
+  photo.addEventListener('click', event => {
+    event.preventDefault();
+    lightboxImage.src = photo.href;
+    lightbox.classList.add('open');
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxImage.src = '';
+}
+
+document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', event => {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeLightbox();
+});
+</script>
+</body>
+</html>
