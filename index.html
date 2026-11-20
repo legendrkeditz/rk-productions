@@ -4,274 +4,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RK Productions | Creative Portfolio</title>
-<meta name="description" content="RK Productions - Professional Video Production, Editing and Photography.">
+<title>RK Productions | Cinematic Films</title>
 <style>
-:root {
-  --gold: #d5ad65;
-  --bg: #0b0b0b;
-  --panel: #151515;
-  --muted: #aaa;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: #fff;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-a { color: inherit; text-decoration: none; }
-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(10,10,10,.94);
-  border-bottom: 1px solid #292929;
-  padding: 17px 7%;
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 20px;
-}
-.logo { font-size: 23px; font-weight: 800; letter-spacing: 2px; }
-.logo span { color: var(--gold); }
-nav { display: flex; gap: 23px; flex-wrap: wrap; }
-nav a { color: #ddd; font-size: 13px; }
-nav a:hover { color: var(--gold); }
-.hero {
-  min-height: 80vh; display: flex; align-items: center;
-  padding: 80px 9%;
-  background: linear-gradient(90deg, #080808 15%, rgba(8,8,8,.78)),
-  url("https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1800&q=85") center/cover;
-}
-.hero-content { max-width: 700px; }
-.eyebrow { color: var(--gold); letter-spacing: 4px; font-size: 12px; }
-h1 { font-size: clamp(43px, 7vw, 82px); line-height: 1.08; margin: 20px 0; }
-h1 span, .gold { color: var(--gold); }
-.hero p { color: #ccc; max-width: 540px; margin-bottom: 28px; }
-.btn {
-  display: inline-block; padding: 13px 24px;
-  border: 1px solid var(--gold); color: var(--gold);
-  margin: 5px 8px 5px 0; font-size: 13px;
-}
-.btn.primary { background: var(--gold); color: #111; }
-section { padding: 85px 8%; }
-.section-heading { text-align: center; margin-bottom: 38px; }
-.section-heading h2 { font-size: clamp(29px, 4vw, 43px); }
-.section-heading p { color: var(--muted); margin-top: 8px; }
-.about {
-  max-width: 850px; margin: auto; text-align: center;
-  color: #bbb;
-}
-.about strong { color: white; }
-.categories {
-  display: flex; justify-content: center; gap: 10px;
-  flex-wrap: wrap; margin-bottom: 30px;
-}
-.filter {
-  background: transparent; border: 1px solid #444;
-  color: #ddd; padding: 10px 15px; cursor: pointer;
-}
-.filter.active, .filter:hover {
-  color: #111; background: var(--gold); border-color: var(--gold);
-}
-.video-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-.video-card { background: var(--panel); overflow: hidden; }
-.video-frame {
-  width: 100%; aspect-ratio: 16/9; border: 0;
-  display: block; background: #222;
-}
-.video-info { padding: 16px; }
-.video-info small { color: var(--gold); }
-.video-info h3 { margin: 5px 0; font-size: 18px; }
-.video-info p { color: var(--muted); font-size: 13px; }
-.photo-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-.photo-card { position: relative; overflow: hidden; background: #222; }
-.photo-card img {
-  width: 100%; height: 280px; object-fit: cover;
-  display: block; transition: transform .4s;
-}
-.photo-card:hover img { transform: scale(1.05); }
-.photo-card p {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 25px 14px 12px;
-  background: linear-gradient(transparent, #000);
-}
-.contact { text-align: center; background: #121212; }
-.contact p { color: #bbb; margin: 12px auto 24px; }
-footer {
-  padding: 25px 8%; text-align: center;
-  color: #777; font-size: 12px; border-top: 1px solid #292929;
-}
-@media(max-width: 800px) {
-  header { flex-direction: column; }
-  nav { justify-content: center; gap: 14px; }
-  .video-grid, .photo-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media(max-width: 520px) {
-  .video-grid, .photo-grid { grid-template-columns: 1fr; }
-  section { padding: 65px 6%; }
-  .photo-card img { height: 300px; }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#101010;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
+header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+.logo{font-size:25px;color:#d6b45c;font-weight:bold}
+nav a{color:white;text-decoration:none;margin-left:20px}
+.hero{text-align:center;padding:100px 20px}
+.hero h1{font-size:48px;color:#d6b45c}
+.hero p{color:#ccc;margin:15px}
+section{padding:55px 8%}
+h2{color:#d6b45c;margin-bottom:25px;font-size:30px}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.video-card{background:#1c1c1c;border:1px solid #333;border-radius:10px;overflow:hidden}
+.video-frame{width:100%;aspect-ratio:16/9;border:0;display:block}
+.video-info{padding:18px}
+.video-info small{color:#d6b45c}
+.video-info h3{margin:8px 0}
+.about p{color:#ccc;max-width:750px}
+.contact p{margin:10px 0}
+.contact a{color:#d6b45c}
+footer{text-align:center;padding:25px;border-top:1px solid #333;color:#aaa}
+@media(max-width:600px){header{flex-direction:column;gap:12px}.hero h1{font-size:34px}nav a{margin:0 7px}}
 </style>
 </head>
 <body>
 
 <header>
-  <a class="logo" href="#home">RK <span>PRODUCTIONS</span></a>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#videos">Videos</a>
-    <a href="#photography">Photography</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="logo">RK PRODUCTIONS</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#videos">Videos</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<main>
 <section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">VIDEO • PHOTOGRAPHY • CREATIVE STORIES</div>
-    <h1>Creating Stories.<br><span>Capturing Moments.</span></h1>
-    <p>Welcome to RK Productions. A creative space for cinematic films, professional video editing and photography.</p>
-    <a class="btn primary" href="#videos">EXPLORE MY WORK</a>
-    <a class="btn" href="#contact">CONTACT ME</a>
-  </div>
+<h1>Creating Stories That Last Forever</h1>
+<p>Cinematic Films | Photography | Creative Production</p>
 </section>
 
-<section id="about">
-  <div class="section-heading">
-    <div class="eyebrow">WHO WE ARE</div>
-    <h2>About <span class="gold">RK Productions</span></h2>
-  </div>
-  <div class="about">
-    <p><strong>RK Productions</strong> is a creative video production and photography brand focused on turning moments into memorable stories. From weddings and events to commercial projects, every frame is created with passion, creativity and attention to detail.</p>
-  </div>
+<section class="about" id="about">
+<h2>About RK Productions</h2>
+<p>We capture beautiful moments and transform them into unforgettable visual stories. From weddings and traditional events to commercial projects, we bring every story to life.</p>
 </section>
 
 <section id="videos">
-  <div class="section-heading">
-    <div class="eyebrow">WATCH OUR WORK</div>
-    <h2>Video <span class="gold">Portfolio</span></h2>
-    <p>Explore our films and creative projects.</p>
-  </div>
-  <div class="categories" id="videoFilters">
-    <button class="filter active" data-filter="all">All Videos</button>
-    <button class="filter" data-filter="baby">Baby Shoot</button>
-    <button class="filter" data-filter="sports">Sports Shoot</button>
-    <button class="filter" data-filter="traditional">Traditional</button>
-    <button class="filter" data-filter="wedding">Wedding</button>
-    <button class="filter" data-filter="advertisement">Advertisement</button>
-    <button class="filter" data-filter="commercial">Commercial</button>
-  </div>
+<h2>Our Video Portfolio</h2>
+<div class="video-grid">
 
-  <div class="video-grid">
-    <!-- Replace VIDEO_ID with the ID from your unlisted YouTube video. -->
-    <article class="video-card" data-category="wedding">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Wedding Shoot" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>WEDDING SHOOT</small><h3>Wedding Film</h3><p>A cinematic wedding story.</p></div>
-    </article>
-    <article class="video-card" data-category="baby">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Baby Shoot" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>BABY SHOOT</small><h3>Baby Film</h3><p>Beautiful moments and memories.</p></div>
-    </article>
-    <article class="video-card" data-category="sports">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Sports Shoot" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>SPORTS SHOOT</small><h3>Sports Film</h3><p>Energy, action and passion.</p></div>
-    </article>
-    <article class="video-card" data-category="traditional">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Traditional Shoot" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>TRADITIONAL SHOOT</small><h3>Traditional Film</h3><p>Celebrating culture and traditions.</p></div>
-    </article>
-    <article class="video-card" data-category="advertisement">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Advertisement Shoot" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>ADVERTISEMENT</small><h3>Advertisement Film</h3><p>Creative brand storytelling.</p></div>
-    </article>
-    <article class="video-card" data-category="commercial">
-      <iframe class="video-frame" src="https://www.youtube.com/embed/VIDEO_ID" title="Commercial Project" allowfullscreen loading="lazy"></iframe>
-      <div class="video-info"><small>COMMERCIAL PROJECT</small><h3>Commercial Film</h3><p>Professional visual content.</p></div>
-    </article>
-  </div>
+<article class="video-card">
+<iframe class="video-frame"
+src="https://drive.google.com/file/d/1-xr7bfmGcLJnpsB3xxDo9raNQtWUffxK/preview"
+title="RK Productions Video"
+allow="autoplay"
+allowfullscreen
+loading="lazy"></iframe>
+<div class="video-info">
+<small>FEATURED VIDEO</small>
+<h3>RK Productions Film</h3>
+<p>Captured by RK Productions</p>
+</div>
+</article>
+
+</div>
 </section>
 
-<section id="photography">
-  <div class="section-heading">
-    <div class="eyebrow">THROUGH THE LENS</div>
-    <h2>Photography <span class="gold">Portfolio</span></h2>
-    <p>A collection of moments captured through my lens.</p>
-  </div>
-  <div class="categories" id="photoFilters">
-    <button class="filter active" data-filter="all">All Photos</button>
-    <button class="filter" data-filter="portrait">Portrait</button>
-    <button class="filter" data-filter="travel">Travel & Landscape</button>
-    <button class="filter" data-filter="street">Street</button>
-    <button class="filter" data-filter="traditional">Traditional</button>
-    <button class="filter" data-filter="wedding">Wedding</button>
-  </div>
-  <div class="photo-grid">
-    <div class="photo-card" data-category="portrait">
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85" alt="Portrait photography">
-      <p>Portrait Photography</p>
-    </div>
-    <div class="photo-card" data-category="travel">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=85" alt="Landscape photography">
-      <p>Travel & Landscape</p>
-    </div>
-    <div class="photo-card" data-category="street">
-      <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=85" alt="Street photography">
-      <p>Street Photography</p>
-    </div>
-    <div class="photo-card" data-category="traditional">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85" alt="Traditional photography">
-      <p>Traditional Photography</p>
-    </div>
-    <div class="photo-card" data-category="wedding">
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85" alt="Wedding photography">
-      <p>Wedding Photography</p>
-    </div>
-    <div class="photo-card" data-category="portrait">
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85" alt="Portrait photography">
-      <p>Creative Portrait</p>
-    </div>
-  </div>
+<section id="contact" class="contact">
+<h2>Contact Us</h2>
+<p>Instagram: <a href="https://instagram.com/" target="_blank">Follow RK Productions</a></p>
+<p>WhatsApp: Add your WhatsApp number</p>
+<p>Email: Add your email address</p>
 </section>
 
-<section class="contact" id="contact">
-  <div class="section-heading">
-    <div class="eyebrow">LET'S CREATE SOMETHING</div>
-    <h2>Work With <span class="gold">Us</span></h2>
-  </div>
-  <p>Have a project or collaboration in mind? Get in touch.</p>
-  <!-- Replace the example contact details below with your own. -->
-  <a class="btn primary" href="https://wa.me/91YOURNUMBER" target="_blank">WHATSAPP</a>
-  <a class="btn" href="https://instagram.com/YOURUSERNAME" target="_blank">INSTAGRAM</a>
-  <a class="btn" href="mailto:YOUREMAIL@example.com">EMAIL</a>
-</section>
-</main>
+<footer>© 2026 RK Productions. All Rights Reserved.</footer>
 
-<footer>
-  © 2026 RK Productions. All Rights Reserved.
-</footer>
-
-<script>
-function setupFilters(containerId, cardSelector) {
-  const container = document.getElementById(containerId);
-  container.querySelectorAll(".filter").forEach(button => {
-    button.addEventListener("click", () => {
-      container.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
-      button.classList.add("active");
-      const filter = button.dataset.filter;
-      document.querySelectorAll(cardSelector).forEach(card => {
-        card.style.display = filter === "all" || card.dataset.category === filter ? "" : "none";
-      });
-    });
-  });
-}
-setupFilters("videoFilters", ".video-card");
-setupFilters("photoFilters", ".photo-card");
-</script>
 </body>
 </html>
